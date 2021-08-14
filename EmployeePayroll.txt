@@ -95,3 +95,33 @@ mysql> SELECT * FROM employee_payroll
 +----+---------+---------+------------+
 3 rows in set (0.08 sec)
 
+#UC6:-Ability To Add Gender TO Employee Payroll Table
+
+mysql> ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+Query OK, 0 rows affected (3.14 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee_payroll set gender = 'F' where name = 'Terisa';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set gender = 'M' where name = 'Bill' or name = 'C
+harlie' or name = 'Omkar';
+Query OK, 3 rows affected (0.11 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update employee_payroll set salary = 2000000.00 where name = 'Terisa';
+Query OK, 0 rows affected (0.04 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+---------+------------+
+| id | name    | gender | salary  | start      |
++----+---------+--------+---------+------------+
+|  1 | Bill    | M      | 1000000 | 2018-01-29 |
+|  2 | Terisa  | F      | 2000000 | 2019-11-05 |
+|  3 | Charlie | M      | 3000000 | 2020-05-21 |
+|  4 | Omkar   | M      | 4000000 | 2021-06-30 |
++----+---------+--------+---------+------------+
+4 rows in set (0.00 sec)
+
