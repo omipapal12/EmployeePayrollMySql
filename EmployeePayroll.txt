@@ -73,3 +73,25 @@ mysql> SELECT * FROM employee_payroll;
 |  4 | Omkar   | M      | 4000000 | 2021-06-30 |
 +----+---------+--------+---------+------------+
 4 rows in set (0.00 sec)
+
+#UC5:-Ability To Retrive Salary Data
+
+mysql> SELECT salary FROM employee_payroll WHERE name = 'Bill';
++---------+
+| salary  |
++---------+
+| 1000000 |
++---------+
+1 row in set (0.06 sec)
+
+mysql> SELECT * FROM employee_payroll
+    -> WHERE start BETWEEN CAST('2019-01-01' AS DATE) AND DATE(NOW());
++----+---------+---------+------------+
+| id | name    | salary  | start      |
++----+---------+---------+------------+
+|  2 | Terisa  | 2000000 | 2019-11-05 |
+|  3 | Charlie | 3000000 | 2020-05-21 |
+|  4 | Omkar   | 4000000 | 2021-06-30 |
++----+---------+---------+------------+
+3 rows in set (0.08 sec)
+
